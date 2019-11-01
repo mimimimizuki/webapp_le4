@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" >
+<script type="text/javascript">
+function frameClick() {
+    document.location.href = "/serched";
+}
+</script>
+<style>
+.hla {
+    position: relative;
+    padding-left: 35px;
+    color: gray;
+}
+.hla:before {
+    position: absolute;
+    font-family: "Font Awesome 5 Free";
+    content: "\f0eb";
+    background: #ffca2c;
+    color: white;
+    font-weight: normal;
+    font-size: 15px;
+    border-radius: 50%;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.hla:after {
+    /*吹き出しのちょこんと出た部分*/
+    content: '';
+    display: block;
+    position: absolute;
+    left: 20px;
+    height: 0;
+    width: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 12px solid #ffca2c;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+body {
+    color: gray;
+}
+form {
+    display : inline-block;
+}
+
+.desu {
+    posision : relative;
+    top : 30px;
+}
+
+</style>
+</head>
+<body>
+<h1 class="hla">私のHLA型は</h1>
+<form method="post" action="/searched">
+<input type="text" placeholder="A" th:value="${a}">
+<input type="text" placeholder="B" th:value="${b}">
+<input type="text" placeholder="C" th:value="${c}">
+<input type="text" placeholder="DR" th:value="${dr}">
+<span class="desu">です。</span>
+<input type="submit" class="send" value="検索" onclick="frameClick();">
+</form>
+<!--
+<table>
+    <tr th:each="emp : ${h_list}" th:object="${emp}">
+        <td th:text="*{hla_id}"></td>
+        <td th:text="*{a}"></td>
+        <td th:text="*{b}"></td>
+        <td th:text="*{c}"></td>
+        <td th:text="*{dr}"></td>
+
+    </tr>
+</table>-->
+</body>
+<html>

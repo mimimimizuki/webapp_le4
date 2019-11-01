@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<body>
+<table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333">
+        <tr>
+        <th bgcolor="dimgray"><font color="#FFFFFF">User_id</font></th>
+        <th bgcolor="dimgray" width="150"><font color="#FFFFFF">A</font></th>
+        <th bgcolor="dimgray" width="200"><font color="#FFFFFF">B</font></th>
+        <th bgcolor="dimgray" width="200"><font color="#FFFFFF">C</font></th>
+        <th bgcolor="dimgray" width="200"><font color="#FFFFFF">DR</font></th>
+        </tr>
+        <tr th:each="register:${result}">
+        <th th:text="${register.hla_id}" ></th>
+        <th th:text="${register.patient_or_donor}" ></th>
+        <th th:text="${register.user_id}" ></th>
+        </tr>
+        <!-- th:each=huga:${...} -> ${hoge.huga} -->
+        <!--th:object=${...}     -> *{huga} -->
+</table>
+</body>
+</html>

@@ -16,4 +16,7 @@ public class HLAService {
     public List<HLA> findAll() {
         return repository.findAll();
     }
+    public List<HLA> search(Integer a, Integer b, Integer c, Integer dr){
+        return repository.findAll();
+    }
 }
