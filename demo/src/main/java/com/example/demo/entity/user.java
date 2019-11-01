@@ -8,15 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "register")
-public class register {
+@Table(name = "user")
+public class user {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
-    @Column(name = "patient_or_donor")
-    private String patient_or_donor;
-    @Column(name = "hla_id")
-    private Long hla_id;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "age")
+    private int age;
 
     public Long getUserId() {
         return user_id;
@@ -26,19 +26,19 @@ public class register {
         this.user_id = user_id;
     }
 
-    public String getPD() {
-        return patient_or_donor;
+    public String getName() {
+        return name;
     }
 
-    public void setPD(String patient_or_donor) {
-        this.patient_or_donor = patient_or_donor;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Long getHLAId() {
-        return hla_id;
+    public int getAge() {
+        return age;
     }
 
-    public void setHLAId(Long hla_id) {
-        this.hla_id = hla_id;
+    public void setAge(int age) {
+        this.age = age;
     }
 }
