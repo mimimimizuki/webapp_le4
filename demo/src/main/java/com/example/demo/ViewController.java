@@ -1,9 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.entity.HLA;
-import com.example.demo.entity.user;
-import com.example.demo.service.HLAService;
-import com.example.demo.service.userService;
+import com.example.demo.entity.*;
+import com.example.demo.service.*;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class ViewController {
     @Autowired
     private HLAService hla_service;
-    private userService service;
+    private userService user_service;
+    private contactService contact_service;
 
     // @RequestMapping(value="/", method = RequestMethod.GET)
     // public String patient(Model model) {
@@ -32,12 +31,24 @@ public class ViewController {
         return "patient";
     }
 
-    @GetMapping("/index")
-    public String index(Model model) {
+    @RequestMapping(value = "/usertest", method = RequestMethod.GET)
+    public String usertest(Model model) {
+        model.addAttribute("users", user_service.findAll());
+        return "contacttest";
+    }
 
-        List<user> users = service.findAll();
-        model.addAttribute("users", users);
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index(Model model) {
+        List<HLA> hla = hla_service.findAll();
+        model.addAttribute("hlas", hla);
         return "index";
+    }
+
+    @RequestMapping(value = "/contacttest", method = RequestMethod.GET)
+    public String contacttest(Model model) {
+        List<contact> contacts = contact_service.findAll();
+        model.addAttribute("contacts", contacts);
+        return "contacttest";
     }
 
     // @GetMapping("/searched")
@@ -46,25 +57,28 @@ public class ViewController {
     // model.addAttribute("hlas", hlas);
     // return "searched";
     // }
-    @GetMapping("/searched")
-    public String find() {
-        return "searched";
-    }
+    // @GetMapping("/searched")
+    // public String find() {
+    // return "searched";
+    // }
 
-    @RequestMapping(value = "/searched", method = RequestMethod.POST)
-    public ModelAndView search(ModelAndView mav, @RequestParam(value = "a", required = false) Integer a,
-            @RequestParam(value = "b", required = false) Integer b,
-            @RequestParam(value = "c", required = false) Integer c,
-            @RequestParam(value = "dr", required = false) Integer dr) {
-        mav.setViewName("/searched");
-        mav.addObject("a", a);
-        mav.addObject("b", b);
-        mav.addObject("c", c);
-        mav.addObject("dr", dr);
-        List<HLA> result = hla_service.search(a, b, c, dr);
-        mav.addObject("result", result);
-        mav.addObject("resultSize", result.size());
-        return mav;
-    }
+    // @RequestMapping(value = "/searched", method = RequestMethod.POST)
+    // public ModelAndView search(ModelAndView mav,
+    // @RequestParam(value = "hla_id", required = false) Long hla_id,
+    // @RequestParam(value = "a", required = false) Integer a,
+    // @RequestParam(value = "b", required = false) Integer b,
+    // @RequestParam(value = "c", required = false) Integer c,
+    // @RequestParam(value = "dr", required = false) Integer dr) {
+    // mav.setViewName("/searched");
+    // mav.addObject("hla_id", hla_id);
+    // mav.addObject("a", a);
+    // mav.addObject("b", b);
+    // mav.addObject("c", c);
+    // mav.addObject("dr", dr);
+    // List<HLA> result = hla_service.findAll();
+    // mav.addObject("result", result);
+    // mav.addObject("resultSize", result.size());
+    // return mav;
+    // }
 
 }

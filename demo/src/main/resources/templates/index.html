@@ -1,9 +1,35 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title> user list </title>
+<script>
+function frameClick() {
+    document.location.href = "/patient";
+}
+</script>
+</head>
 <body>
 <table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333">
         <tr>
-        <th bgcolor="gray"><font color="#FFFFFF">No</font></th>
+        <th bgcolor="gray"><font color="#FFFFFF">hla_id</font></th>
+        <th bgcolor="gray" width="150"><font color="#FFFFFF">A</font></th>
+        <th bgcolor="gray" width="200"><font color="#FFFFFF">B</font></th>
+        <th bgcolor="gray" width="200"><font color="#FFFFFF">C</font></th>
+        <th bgcolor="gray" width="200"><font color="#FFFFFF">DR</font></th>
+        </tr>
+        <tr th:each="hlas:${hlas}">
+        <th th:text="${hlas.id}" ></th>
+        <th th:text="${hlas.a}" ></th>
+        <th th:text="${hlas.b}" ></th>
+        <th th:text="${hlas.c}" ></th>
+        <th th:text="${hlas.DR}" ></th>
+        </tr>
+        <!-- th:each=huga:${...} -> ${hoge.huga} -->
+        <!--th:object=${...}     -> *{huga} -->
+</table>
+<table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333">
+        <tr>
+        <th bgcolor="gray"><font color="#FFFFFF">user_id</font></th>
         <th bgcolor="gray" width="150"><font color="#FFFFFF">name</font></th>
         <th bgcolor="gray" width="200"><font color="#FFFFFF">age</font></th>
         </tr>
@@ -14,6 +40,8 @@
         </tr>
         <!-- th:each=huga:${...} -> ${hoge.huga} -->
         <!--th:object=${...}     -> *{huga} -->
-    </table>
+</table>
+
+<button id="btn" value="Click" onclick="frameClick();">search List!</button>
 </body>
 </html>

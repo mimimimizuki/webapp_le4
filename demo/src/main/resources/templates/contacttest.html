@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title> user list </title>
+<script>
+function frameClick() {
+    document.location.href = "/patient";
+}
+</script>
+</head>
+<body>
+<table border="1" width="500" cellspacing="0" cellpadding="5" bordercolor="#333333">
+        <tr>
+        <th bgcolor="gray"><font color="#FFFFFF">user_id</font></th>
+        <th bgcolor="gray" width="150"><font color="#FFFFFF">name</font></th>
+        <th bgcolor="gray" width="200"><font color="#FFFFFF">tel</font></th>
+        </tr>
+        <tr th:each="contacts:${contacts}">
+        <th th:text="${contacts.id}" ></th>
+        <th th:text="${contacts.name}" ></th>
+        <th th:text="${contacs.tel}" ></th>
+        </tr>
+        <!-- th:each=huga:${...} -> ${hoge.huga} -->
+        <!--th:object=${...}     -> *{huga} -->
+</table>
+
+<button id="btn" value="Click" onclick="frameClick();">search List!</button>
+</body>
+</html>

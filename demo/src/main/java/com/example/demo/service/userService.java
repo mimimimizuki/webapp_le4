@@ -16,4 +16,14 @@ public class userService {
     public List<user> findAll() {
         return repository.findAll();
     }
+
+    // public user_data save(user_data user) {
+    // return repository.save(user);
+    // }
+
+    // public void delete(Long id) {
+    // user_data user = new user_data();
+    // user.setUserId(id);
+    // repository.delete(user);
+    // }
 }

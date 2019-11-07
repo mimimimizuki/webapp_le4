@@ -32,10 +32,11 @@ body {
         <th bgcolor="dimgray" width="200"><font color="#FFFFFF">DR</font></th>
         </tr>
         <tr th:each="hla:${result}">
+        <th th:text="${hla.id}" ></th>
         <th th:text="${hla.a}" ></th>
         <th th:text="${hla.b}" ></th>
         <th th:text="${hla.c}" ></th>
-        <th th:text="${hla.dr}" ></th>
+        <th th:text="${hla.DR}" ></th>
         </tr>
         <!-- th:each=huga:${...} -> ${hoge.huga} -->
         <!--th:object=${...}     -> *{huga} -->

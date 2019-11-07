@@ -8,21 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user_data")
-public class user {
+@Table(name = "contact")
+public class contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_id;
     @Column(name = "name")
     private String name;
-    @Column(name = "age")
-    private int age;
+    @Column(name = "tel")
+    private int tel;
 
-    public Long getId() {
+    public Long getUserId() {
         return user_id;
     }
 
-    public void setId(Long user_id) {
+    public void setUserId(Long user_id) {
         this.user_id = user_id;
     }
 
@@ -34,11 +34,11 @@ public class user {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public int getTel() {
+        return tel;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setAge(Integer tel) {
+        this.tel = tel;
     }
 }
